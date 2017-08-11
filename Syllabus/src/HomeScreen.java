@@ -39,7 +39,7 @@ public class HomeScreen extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(211, 211, 211));
-		panel.setBounds(0, 0, 764, 169);
+		panel.setBounds(0, 0, 770, 169);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -62,7 +62,7 @@ public class HomeScreen extends JFrame {
 		panel.add(lblPuneUniversity);
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 764, 39);
+		panel_1.setBounds(0, 0, 770, 39);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -76,7 +76,41 @@ public class HomeScreen extends JFrame {
 		lblUser_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblUser_1.setBounds(629, 12, 69, 17);
 		panel_1.add(lblUser_1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(35, 205, 193, 203);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblScience = new JLabel("Science");
+		lblScience.setBounds(64, 99, 46, 14);
+		panel_2.add(lblScience);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(283, 205, 193, 203);
+		contentPane.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblCommerce = new JLabel("Commerce");
+		lblCommerce.setBounds(70, 95, 82, 14);
+		panel_3.add(lblCommerce);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(534, 205, 193, 203);
+		contentPane.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JLabel lblArts = new JLabel("Arts");
+		lblArts.setBounds(70, 98, 46, 14);
+		panel_4.add(lblArts);
+		
+		JLabel lblVersion = new JLabel("version 0.1");
+		lblVersion.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblVersion.setForeground(new Color(255, 255, 255));
+		lblVersion.setBounds(348, 427, 70, 14);
+		contentPane.add(lblVersion);
 
+//		setUndecorated(true);
 		setIconImage(new ImageIcon("src/img/sppu-desktop-logo-white2.png").getImage());
 		setLocationRelativeTo(null);
 	}
