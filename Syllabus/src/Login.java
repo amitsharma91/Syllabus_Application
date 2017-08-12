@@ -1,21 +1,25 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
@@ -114,6 +118,25 @@ public class Login extends JFrame {
 		contentPane.add(lblPassword);
 
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if ((txtUsername.getText().trim()).equals("admin")
+						&& (String.valueOf(lblPassword.getPassword()).trim()).equals("admin")) {
+					dispose();
+					new HomeScreen().setVisible(true);
+				} else {
+					UIManager.put("OptionPane.background", new Color(57, 167, 165));
+					UIManager.put("OptionPane.messageForeground", Color.WHITE);
+					UIManager.put("Panel.background", new Color(57, 167, 165));
+					JOptionPane.showMessageDialog(null, "Enter Valid Credentials", "Login Failed",
+							JOptionPane.ERROR_MESSAGE);
+
+					txtUsername.setText("");
+					lblPassword.setText("");
+					txtUsername.requestFocusInWindow();
+				}
+			}
+		});
 
 		btnNewButton.addMouseListener(new MouseListener() {
 
@@ -174,11 +197,12 @@ public class Login extends JFrame {
 
 		JLabel lblC = new JLabel("");
 		lblC.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent me){
+			public void mouseClicked(MouseEvent me) {
 				System.exit(0);
 			}
 		});
-		lblC.setIcon(new ImageIcon(new ImageIcon(Login.class.getResource("/img/icons8-Close Window-48.png")).getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_SMOOTH)));
+		lblC.setIcon(new ImageIcon(new ImageIcon(Login.class.getResource("/img/icons8-Close Window-48.png")).getImage()
+				.getScaledInstance(18, 18, java.awt.Image.SCALE_SMOOTH)));
 		lblC.setBounds(372, 11, 18, 18);
 		panel.add(lblC);
 
