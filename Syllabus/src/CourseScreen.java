@@ -6,8 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.AbstractAction;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -36,9 +38,6 @@ public class CourseScreen extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public CourseScreen(String stream) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 770, 480);
@@ -89,14 +88,41 @@ public class CourseScreen extends JFrame {
 		lblPressescTo.setBounds(10, 7, 134, 14);
 		panel_1.add(lblPressescTo);
 
+		DefaultListModel<String> model = new DefaultListModel<>();
+
+		String relativePath = "/src/"+stream+"/";
+		String absolutePath = (System.getProperty("user.dir")).replace('\\', '/');
+		String actualPath = absolutePath + relativePath;
+
+		System.out.println("Relative: " + relativePath);
+		System.out.println("Absolute: " + absolutePath);
+		System.out.println("Actual: " + actualPath);
+
+		File f = new File(actualPath);
+
+		File[] fileList = f.listFiles();
+
+		int n = 1;
+		for (File o : fileList) {
+			model.addElement((n++)+") "+o.getName());
+		}
+
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 111, 750, 358);
+		scrollPane.setBounds(70, 143, 630, 302);
 		contentPane.add(scrollPane);
 
-		String[] listItems = { "MCA Semester I", "MCA Semester II", "MCA Semester III", "MCA Semester IV",
-				"MCA Semester V", "MCA Semester VI" };
-		JList<String> list = new JList<String>(listItems);
+		JList<String> list = new JList<>(model);
 		scrollPane.setViewportView(list);
+		list.setForeground(new Color(153, 51, 51));
+		list.setFixedCellHeight(30);
+		list.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
+		list.setBackground(new Color(153, 204, 204));
+
+		JLabel lblClickToView = new JLabel("Click below file to view the contents of Syllabus");
+		lblClickToView.setForeground(new Color(255, 255, 0));
+		lblClickToView.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
+		lblClickToView.setBounds(70, 106, 603, 26);
+		contentPane.add(lblClickToView);
 
 		// on ESC key close frame
 		getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
