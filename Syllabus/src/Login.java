@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -14,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
@@ -44,18 +46,6 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JLabel lblLogin = new JLabel("Login");
-		lblLogin.setFont(new Font("Bookman Old Style", Font.PLAIN, 24));
-		lblLogin.setForeground(new Color(255, 255, 255));
-		lblLogin.setBounds(22, 24, 69, 30);
-		contentPane.add(lblLogin);
-
-		JLabel lblEnterCredentialsBelow = new JLabel("Enter credentials below to Login");
-		lblEnterCredentialsBelow.setFont(new Font("Bookman Old Style", Font.PLAIN, 11));
-		lblEnterCredentialsBelow.setForeground(new Color(255, 255, 255));
-		lblEnterCredentialsBelow.setBounds(22, 67, 201, 14);
-		contentPane.add(lblEnterCredentialsBelow);
 
 		JSeparator separator = new JSeparator();
 		separator.setBounds(166, 135, 186, 2);
@@ -95,8 +85,7 @@ public class Login extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(166, 194, 186, 2);
 		contentPane.add(separator_1);
-		
-		
+
 		JPasswordField lblPassword = new JPasswordField();
 		lblPassword.setBackground(new Color(0, 51, 51));
 		lblPassword.setCaretColor(Color.WHITE);
@@ -123,8 +112,6 @@ public class Login extends JFrame {
 			}
 		});
 		contentPane.add(lblPassword);
-
-		
 
 		JButton btnNewButton = new JButton("Login");
 
@@ -166,5 +153,40 @@ public class Login extends JFrame {
 		lblPassword_1.setForeground(Color.WHITE);
 		lblPassword_1.setBounds(70, 182, 86, 14);
 		contentPane.add(lblPassword_1);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(102, 102, 102));
+		panel.setBounds(0, 0, 400, 64);
+		contentPane.add(panel);
+		panel.setLayout(null);
+
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setBounds(10, 11, 69, 30);
+		panel.add(lblLogin);
+		lblLogin.setFont(new Font("Bookman Old Style", Font.PLAIN, 24));
+		lblLogin.setForeground(new Color(255, 255, 255));
+
+		JLabel lblEnterCredentialsBelow = new JLabel("Enter credentials below to Login");
+		lblEnterCredentialsBelow.setBounds(10, 43, 201, 14);
+		panel.add(lblEnterCredentialsBelow);
+		lblEnterCredentialsBelow.setFont(new Font("Bookman Old Style", Font.PLAIN, 11));
+		lblEnterCredentialsBelow.setForeground(new Color(255, 255, 255));
+
+		JLabel lblC = new JLabel("");
+		lblC.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent me){
+				System.exit(0);
+			}
+		});
+		lblC.setIcon(new ImageIcon(new ImageIcon(Login.class.getResource("/img/icons8-Close Window-48.png")).getImage().getScaledInstance(18, 18, java.awt.Image.SCALE_SMOOTH)));
+		lblC.setBounds(372, 11, 18, 18);
+		panel.add(lblC);
+
+		FrameDragListener frameDrag = new FrameDragListener(this);
+		addMouseListener(frameDrag);
+		addMouseMotionListener(frameDrag);
+
+		setUndecorated(true);
+		setLocationRelativeTo(null);
 	}
 }

@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -40,6 +42,11 @@ public class HomeScreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		FrameDragListener frame = new FrameDragListener(this);
+		addMouseListener(frame);
+		addMouseMotionListener(frame);
+		
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 88, 86));
@@ -67,12 +74,13 @@ public class HomeScreen extends JFrame {
 		panel.add(lblPuneUniversity);
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(153, 204, 204));
 		panel_1.setBounds(0, 0, 770, 39);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
 		JLabel lblUser = new JLabel("");
-		lblUser.setIcon(new ImageIcon(new ImageIcon(HomeScreen.class.getResource("/img/avatar.png")).getImage()
+		lblUser.setIcon(new ImageIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-User-48.png")).getImage()
 				.getScaledInstance(18, 18, java.awt.Image.SCALE_SMOOTH)));
 		lblUser.setBounds(598, 12, 18, 18);
 		panel_1.add(lblUser);
@@ -81,6 +89,16 @@ public class HomeScreen extends JFrame {
 		lblUser_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblUser_1.setBounds(629, 12, 69, 17);
 		panel_1.add(lblUser_1);
+		
+		JLabel lblC = new JLabel("");
+		lblC.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});
+		lblC.setIcon(new ImageIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Close Window-48.png")).getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH)));
+		lblC.setBounds(742, 11, 18, 18);
+		panel_1.add(lblC);
 
 		DropShadowBorder shadowBorder = new DropShadowBorder();
 		shadowBorder.setShadowColor(Color.WHITE);
@@ -204,7 +222,7 @@ public class HomeScreen extends JFrame {
 		lblVersion.setBounds(348, 427, 70, 14);
 		contentPane.add(lblVersion);
 
-		// setUndecorated(true);
+		 setUndecorated(true);
 		setIconImage(new ImageIcon("src/img/sppu-desktop-logo-white2.png").getImage());
 		setLocationRelativeTo(null);
 	}
