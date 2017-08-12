@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -119,24 +118,18 @@ public class HomeScreen extends JFrame {
 		lblScience.setBounds(65, 146, 46, 14);
 
 		JPanel panel_2 = new JPanel();
-		panel_2.addMouseListener(new MouseListener() {
-
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			public void mousePressed(MouseEvent e) {
-			}
+		panel_2.addMouseListener(new MouseAdapter() {
 
 			public void mouseExited(MouseEvent e) {
 				lblScience.setForeground(Color.WHITE);
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblScience.setForeground(Color.YELLOW);
 			}
 
 			public void mouseClicked(MouseEvent e) {
+				new CourseScreen("Science").setVisible(true);
 			}
 		});
 		panel_2.setBackground(new Color(57, 167, 165));
@@ -166,13 +159,7 @@ public class HomeScreen extends JFrame {
 		lblCommerce.setBounds(58, 146, 82, 14);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.addMouseListener(new MouseListener() {
-
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			public void mousePressed(MouseEvent e) {
-			}
+		panel_3.addMouseListener(new MouseAdapter() {
 
 			public void mouseExited(MouseEvent e) {
 				lblCommerce.setForeground(Color.WHITE);
@@ -183,6 +170,7 @@ public class HomeScreen extends JFrame {
 			}
 
 			public void mouseClicked(MouseEvent e) {
+				new CourseScreen("Commerce").setVisible(true);
 			}
 		});
 		panel_3.setBackground(new Color(57, 167, 165));
@@ -204,13 +192,7 @@ public class HomeScreen extends JFrame {
 		lblArts.setBounds(72, 147, 46, 14);
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.addMouseListener(new MouseListener() {
-
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			public void mousePressed(MouseEvent e) {
-			}
+		panel_4.addMouseListener(new MouseAdapter() {
 
 			public void mouseExited(MouseEvent e) {
 				lblArts.setForeground(Color.WHITE);
@@ -221,6 +203,7 @@ public class HomeScreen extends JFrame {
 			}
 
 			public void mouseClicked(MouseEvent e) {
+				new CourseScreen("Arts").setVisible(true);
 			}
 		});
 		panel_4.setBackground(new Color(57, 167, 165));
