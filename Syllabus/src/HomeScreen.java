@@ -85,7 +85,7 @@ public class HomeScreen extends JFrame {
 		lblUser.setBounds(598, 12, 18, 18);
 		panel_1.add(lblUser);
 
-		JLabel lblUser_1 = new JLabel("User");
+		JLabel lblUser_1 = new JLabel("admin");
 		lblUser_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblUser_1.setBounds(629, 12, 69, 17);
 		panel_1.add(lblUser_1);
@@ -99,6 +99,12 @@ public class HomeScreen extends JFrame {
 		lblC.setIcon(new ImageIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Close Window-48.png")).getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH)));
 		lblC.setBounds(742, 11, 18, 18);
 		panel_1.add(lblC);
+		
+		JLabel lblTheFacuultyWise = new JLabel("The Facuulty wise Syllabus");
+		lblTheFacuultyWise.setBounds(107, 145, 187, 24);
+		panel.add(lblTheFacuultyWise);
+		lblTheFacuultyWise.setForeground(new Color(255, 255, 51));
+		lblTheFacuultyWise.setFont(new Font("Bookman Old Style", Font.PLAIN, 12));
 
 		DropShadowBorder shadowBorder = new DropShadowBorder();
 		shadowBorder.setShadowColor(Color.WHITE);
@@ -110,7 +116,7 @@ public class HomeScreen extends JFrame {
 
 		JLabel lblScience = new JLabel("Science");
 		lblScience.setForeground(Color.WHITE);
-		lblScience.setBounds(64, 99, 46, 14);
+		lblScience.setBounds(65, 146, 46, 14);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.addMouseListener(new MouseListener() {
@@ -140,6 +146,11 @@ public class HomeScreen extends JFrame {
 		panel_2.setLayout(null);
 
 		panel_2.add(lblScience);
+		
+		JLabel lblS = new JLabel("s");
+		lblS.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Science Application-100.png")));
+		lblS.setBounds(42, 39, 100, 100);
+		panel_2.add(lblS);
 
 		DropShadowBorder shadowBorder2 = new DropShadowBorder();
 		shadowBorder2.setShadowColor(Color.gray);
@@ -152,7 +163,7 @@ public class HomeScreen extends JFrame {
 		
 		JLabel lblCommerce = new JLabel("Commerce");
 		lblCommerce.setForeground(Color.WHITE);
-		lblCommerce.setBounds(70, 95, 82, 14);
+		lblCommerce.setBounds(58, 146, 82, 14);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.addMouseListener(new MouseListener() {
@@ -181,11 +192,16 @@ public class HomeScreen extends JFrame {
 		panel_3.setLayout(null);
 		
 		panel_3.add(lblCommerce);
+		
+		JLabel label_1 = new JLabel("s");
+		label_1.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Brief-100.png")));
+		label_1.setBounds(41, 35, 100, 100);
+		panel_3.add(label_1);
 
 		
 		JLabel lblArts = new JLabel("Arts");
 		lblArts.setForeground(Color.WHITE);
-		lblArts.setBounds(70, 98, 46, 14);
+		lblArts.setBounds(72, 147, 46, 14);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.addMouseListener(new MouseListener() {
@@ -215,12 +231,30 @@ public class HomeScreen extends JFrame {
 
 		
 		panel_4.add(lblArts);
+		
+		JLabel label_2 = new JLabel("s");
+		label_2.setIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Easel-100.png")));
+		label_2.setBounds(43, 36, 100, 100);
+		panel_4.add(label_2);
 
 		JLabel lblVersion = new JLabel("version 0.1");
 		lblVersion.setFont(new Font("Verdana", Font.PLAIN, 11));
 		lblVersion.setForeground(new Color(255, 255, 255));
-		lblVersion.setBounds(348, 427, 70, 14);
+		lblVersion.setBounds(473, 455, 70, 14);
 		contentPane.add(lblVersion);
+		
+		JLabel lblDesignedBy = new JLabel("| Designed By: ");
+		lblDesignedBy.setForeground(Color.WHITE);
+		lblDesignedBy.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblDesignedBy.setBounds(544, 455, 93, 14);
+		contentPane.add(lblDesignedBy);
+		
+		JLabel label = new JLabel("| Designed By: ");
+		label.setIcon(new ImageIcon(new ImageIcon(HomeScreen.class.getResource("/img/icons8-Text Color-48.png")).getImage().getScaledInstance(40, 30, Image.SCALE_SMOOTH)));
+		label.setForeground(Color.WHITE);
+		label.setFont(new Font("Verdana", Font.PLAIN, 11));
+		label.setBounds(629, 447, 40, 30);
+		contentPane.add(label);
 
 		 setUndecorated(true);
 		setIconImage(new ImageIcon("src/img/sppu-desktop-logo-white2.png").getImage());
