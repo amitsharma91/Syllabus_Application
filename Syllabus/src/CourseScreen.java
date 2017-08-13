@@ -56,13 +56,13 @@ public class CourseScreen extends JFrame {
 		JLabel lblLogo = new JLabel("logo");
 		lblLogo.setIcon(new ImageIcon(new ImageIcon(CourseScreen.class.getResource("/img/uop_logo.jpg")).getImage()
 				.getScaledInstance(80, 70, Image.SCALE_SMOOTH)));
-		lblLogo.setBounds(627, 30, 80, 70);
+		lblLogo.setBounds(619, 30, 80, 70);
 		panel.add(lblLogo);
 
 		JLabel lblFacultyOfScience = new JLabel("Faculty Of " + stream);
 		lblFacultyOfScience.setFont(new Font("Bookman Old Style", Font.PLAIN, 24));
 		lblFacultyOfScience.setForeground(new Color(255, 255, 255));
-		lblFacultyOfScience.setBounds(58, 41, 408, 48);
+		lblFacultyOfScience.setBounds(70, 36, 408, 48);
 		panel.add(lblFacultyOfScience);
 
 		JPanel panel_1 = new JPanel();
@@ -117,6 +117,15 @@ public class CourseScreen extends JFrame {
 		list.setFixedCellHeight(30);
 		list.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
 		list.setBackground(new Color(153, 204, 204));
+
+		list.addMouseListener(new MouseAdapter() {
+
+			public void mouseClicked(MouseEvent arg0) {
+				String file = actualPath+(list.getSelectedValue()).substring(3);
+				System.out.println("File Selected is: "+file);
+				OpenPdfExternal.openPDF(file);
+			}
+		});
 
 		JLabel lblClickToView = new JLabel("Click below file to view the contents of Syllabus");
 		lblClickToView.setForeground(new Color(255, 255, 0));
